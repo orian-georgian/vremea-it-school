@@ -49,6 +49,9 @@
               îmbraci? Îți venim în ajutor! Alege mai jos una dintre locațiile
               IT School și apoi scrollează pentru a vedea vremea din orașul tău.
             </p>
+            <h2 class="h2 fw-bold my-5">
+              Orașul selectat este <span id="location-label"></span>
+            </h2>
             <div class="btn-group dropend mb-5">
               <button
                 type="button"
@@ -58,9 +61,9 @@
               >
                 Alege un oraș
               </button>
-              <ul class="dropdown-menu fs-5">
+              <ul id="locations-list" class="dropdown-menu fs-5">
                 <li><a class="dropdown-item">Arad</a></li>
-                <li><a class="dropdown-item">București</a></li>
+                <li><a id="bucharest" class="dropdown-item">București</a></li>
                 <li><a class="dropdown-item">Cluj-Napoca</a></li>
                 <li><a class="dropdown-item">Iași</a></li>
                 <li><a class="dropdown-item">Oradea</a></li>
@@ -72,6 +75,14 @@
           <div class="weather-girl d-flex">
             <img src="./assets/images/laptop-girl.png" alt="Weather girl" />
           </div>
+        </div>
+      </section>
+      <section class="weather-section">
+        <div
+          id="current-weather"
+          class="content content-max-width d-flex gap-4"
+        >
+          <h2>Vremea astăzi</h2>
         </div>
       </section>
     </main>
@@ -235,5 +246,9 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="constants.js"></script>
+    <script type="module" src="api/currentWeather.js"></script>
+    <script type="module" src="sections/weather.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

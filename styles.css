@@ -5,6 +5,7 @@
   --white: #fff;
   --hover-orange: #ecb13a;
   --transparent-background: rgba(252, 250, 247, 0.1);
+  --section-background: rgba(202, 205, 193, 0.1);
   --green: #008768;
 }
 
@@ -91,6 +92,16 @@ main .general-info .content .information p {
   margin-left: auto;
 }
 
+main .weather-section {
+  background-color: var(--section-background);
+}
+
+main .weather-section .content {
+  padding: 100px 20px;
+}
+
+/* Footer */
+
 footer .content {
   padding: 48px 20px;
   display: flex;
@@ -129,8 +140,6 @@ footer .content .footer-column .links {
   flex-direction: column;
   row-gap: 6px;
 }
-
-/* Footer */
 
 footer .content .footer-column .links a {
   font-size: 16px;
