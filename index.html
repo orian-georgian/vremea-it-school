@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap"
+    />
+    <link
       href="https://fonts.googleapis.com/css?family=Asap"
       rel="stylesheet"
     />
@@ -50,7 +54,7 @@
               IT School și apoi scrollează pentru a vedea vremea din orașul tău.
             </p>
             <h2 class="h2 fw-bold my-5">
-              Orașul selectat este <span id="location-label"></span>
+              Orașul curent este » <span id="location-label"></span>
             </h2>
             <div class="btn-group dropend mb-5">
               <button
@@ -77,13 +81,19 @@
           </div>
         </div>
       </section>
+
       <section class="weather-section">
         <div
           id="current-weather"
-          class="content content-max-width d-flex gap-4"
-        >
-          <h2>Vremea astăzi</h2>
-        </div>
+          class="content content-max-width d-flex justify-content-center gap-4"
+        ></div>
+      </section>
+
+      <section class="forecast-section">
+        <div
+          id="forecast-weather"
+          class="content content-max-width d-flex justify-content-center gap-4"
+        ></div>
       </section>
     </main>
     <footer>
@@ -246,9 +256,12 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="utils/dateModification.js"></script>
+    <script type="module" src="utils/general.js"></script>
     <script type="module" src="constants.js"></script>
-    <script type="module" src="api/currentWeather.js"></script>
+    <script type="module" src="api/weatherApis.js"></script>
     <script type="module" src="sections/weather.js"></script>
+    <script type="module" src="sections/forecast.js"></script>
     <script type="module" src="index.js"></script>
   </body>
 </html>

@@ -1,25 +1,33 @@
-import { loadCurrentWeather } from "./api/currentWeather.js";
+import { loadData } from "./api/weatherApis.js";
 import { buildWeatherSection } from "./sections/weather.js";
+import { buildForecastSection } from "./sections/forecast.js";
 
 const initApp = async () => {
   const initalLocation = "București";
   const locationLabelEl = document.getElementById("location-label");
   const locationsListEl = document.getElementById("locations-list");
 
-  const { isOk, weather } = await loadCurrentWeather(initalLocation);
+  const [weatherResponse, forecastResponse] = await Promise.all([
+    loadData(initalLocation, "weather"),
+    loadData(initalLocation, "forecast"),
+  ]);
 
-  if (isOk) {
-    console.log(weather);
-    buildWeatherSection(weather);
+  console.log(weatherResponse, forecastResponse);
+
+  if (weatherResponse.isOk) {
+    buildWeatherSection(weatherResponse.data);
+  }
+
+  if (forecastResponse.isOk) {
+    buildForecastSection(forecastResponse.data);
   }
 
   const handleLocationsListClick = async (e) => {
     const locationName = e.target.childNodes[0].textContent;
-    const { isOk, weather } = await loadCurrentWeather(locationName);
+    const { isOk, data } = await loadCurrentWeather(locationName, "weather");
 
     if (isOk) {
-      console.log(weather);
-      buildWeatherSection(weather);
+      buildWeatherSection(data);
     }
 
     locationLabelEl.textContent = locationName;

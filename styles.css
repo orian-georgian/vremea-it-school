@@ -22,6 +22,32 @@ body {
   margin: 0 auto;
 }
 
+.context-max-width-900 {
+  max-width: min(940px, 100vw);
+  margin: 0 auto;
+}
+
+.bold-info {
+  font-weight: 700;
+  font-family: "Poppins";
+}
+
+.fs-lg {
+  font-size: 46px;
+}
+
+.fs-xlg {
+  font-size: 52px;
+}
+
+.fs-md {
+  font-size: 32px;
+}
+
+.fs-sm {
+  font-size: 24px;
+}
+
 /* Suprascriere stiluri bootstrap */
 
 .btn.btn-success {
@@ -94,9 +120,21 @@ main .general-info .content .information p {
 
 main .weather-section {
   background-color: var(--section-background);
+  font-family: "Poppins" sans-serif;
 }
 
 main .weather-section .content {
+  padding: 100px 20px;
+}
+
+main .forecast-section {
+  background-image: url("https://www.itschool.ro/_next/static/media/background.570f46a1.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  font-family: "Poppins" sans-serif;
+}
+
+main .forecast-section .content {
   padding: 100px 20px;
 }
 
