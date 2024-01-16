@@ -38,3 +38,10 @@ export const formatDate = (value) => {
 
   return `${dayName}, ${dayNumber} ${monthName}`;
 };
+
+export const getHour = (value) => {
+  const date = new Date(value * 1000);
+  const hour = date.getHours();
+
+  return `${hour > 10 ? hour : "0" + hour}:00`;
+};

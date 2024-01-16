@@ -2,6 +2,16 @@ import { loadData } from "./api/weatherApis.js";
 import { buildWeatherSection } from "./sections/weather.js";
 import { buildForecastSection } from "./sections/forecast.js";
 
+const toggleArrowByDisplaySize = (innerWidth) => {
+  const cityButtonEl = document.getElementById("city-button");
+
+  if (innerWidth > 576) {
+    cityButtonEl.classList.add("dropend");
+  } else if (cityButtonEl.classList.contains("dropend")) {
+    cityButtonEl.classList.remove("dropend");
+  }
+};
+
 const initApp = async () => {
   const initalLocation = "București";
   const locationLabelEl = document.getElementById("location-label");
@@ -11,8 +21,6 @@ const initApp = async () => {
     loadData(initalLocation, "weather"),
     loadData(initalLocation, "forecast"),
   ]);
-
-  console.log(weatherResponse, forecastResponse);
 
   if (weatherResponse.isOk) {
     buildWeatherSection(weatherResponse.data);
@@ -24,18 +32,34 @@ const initApp = async () => {
 
   const handleLocationsListClick = async (e) => {
     const locationName = e.target.childNodes[0].textContent;
-    const { isOk, data } = await loadCurrentWeather(locationName, "weather");
 
-    if (isOk) {
-      buildWeatherSection(data);
+    const [weatherResponse, forecastResponse] = await Promise.all([
+      loadData(locationName, "weather"),
+      loadData(locationName, "forecast"),
+    ]);
+
+    if (weatherResponse.isOk) {
+      buildWeatherSection(weatherResponse.data);
+    }
+
+    if (forecastResponse.isOk) {
+      buildForecastSection(forecastResponse.data);
     }
 
     locationLabelEl.textContent = locationName;
   };
 
+  const handleWindowResize = ({ target: { innerWidth } }) => {
+    toggleArrowByDisplaySize(innerWidth);
+  };
+
+  toggleArrowByDisplaySize(window.innerWidth);
+
   locationsListEl.addEventListener("click", handleLocationsListClick);
 
   locationLabelEl.textContent = initalLocation;
+
+  window.addEventListener("resize", handleWindowResize);
 };
 
 initApp();

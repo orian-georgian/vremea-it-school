@@ -6,6 +6,7 @@
   --hover-orange: #ecb13a;
   --transparent-background: rgba(252, 250, 247, 0.1);
   --section-background: rgba(202, 205, 193, 0.1);
+  --border-color: rgba(0, 0, 0, 0.175);
   --green: #008768;
 }
 
@@ -131,11 +132,34 @@ main .forecast-section {
   background-image: url("https://www.itschool.ro/_next/static/media/background.570f46a1.svg");
   background-repeat: no-repeat;
   background-position: center top;
-  font-family: "Poppins" sans-serif;
+  background-size: cover;
 }
 
 main .forecast-section .content {
   padding: 100px 20px;
+}
+
+main .forecast-section .content .card {
+  min-width: 320px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+main .forecast-section .content .card .card-hour {
+  background-color: var(--white);
+  bottom: -35px;
+  right: -35px;
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  font-family: "Poppins";
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  box-shadow: rgba(25, 30, 48, 0.05) 0px 10px 10px 0px;
+}
+
+main .forecast-section .content .card .forecast-values div:last-child {
+  font-weight: 600;
 }
 
 /* Footer */
@@ -192,4 +216,72 @@ footer .content .footer-column .links a {
 
 footer .content .footer-column .links a:hover {
   color: var(--green);
+}
+
+@media screen and (max-width: 576px) {
+  .fs-lg {
+    font-size: 32px;
+  }
+
+  main .general-info .content {
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+  }
+
+  main .general-info .content .information {
+    max-width: 100%;
+  }
+
+  main .general-info .content .information h1 {
+    margin-top: 24px !important;
+  }
+
+  main .general-info .content .information .btn-group {
+    width: 100%;
+  }
+
+  main .general-info .content .weather-girl img {
+    width: 100%;
+  }
+
+  main .weather-section .content {
+    padding: 50px 20px;
+  }
+
+  main .weather-section .content .current-weather-info {
+    flex-direction: column;
+  }
+
+  main .weather-section .content .left-side-info {
+    text-align: center;
+  }
+
+  main .weather-section .content .right-side-info {
+    margin-left: 0 !important;
+  }
+
+  main .weather-section .content .right-side-info div:first-child {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  main .weather-section .content .left-side-info div:nth-child(2) {
+    justify-content: center;
+  }
+
+  main .forecast-section .content {
+    padding: 0px 20px 100px 20px;
+  }
+
+  main .forecast-section .content .card {
+    width: 100%;
+  }
+
+  main .forecast-section .content .card .card-hour {
+    left: calc(50% - 37.5px);
+  }
+
+  footer .content {
+    flex-direction: column;
+  }
 }
